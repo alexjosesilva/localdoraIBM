@@ -46,4 +46,30 @@ class TestIbmApplicationTests {
         assertEquals("Corolla", resultado.get(0).getModelo());
     }
 
+    @Test
+    public void buscarCarroPorId_QuandoEncontrado_DeveRetornarCarro() {
+        // Arrange
+        Carro carro = new Carro(1L, "Toyota", "Corolla");
+        when(carroRepository.findById(1L)).thenReturn(Optional.of(carro));
+
+        // Act
+        Optional<Carro> resultado = carroService.buscarCarroPorId(1L);
+
+        // Assert
+        assertEquals(carro, resultado.orElse(null));
+    }
+
+    @Test
+    public void cadastrarCarro_DeveRetornarCarroCadastrado() {
+        // Arrange
+        Carro carro = new Carro(1L, "Toyota", "Corolla");
+        when(carroRepository.save(carro)).thenReturn(carro);
+
+        // Act
+        Carro resultado = carroService.cadastrarCarro(carro);
+
+        // Assert
+        assertEquals(carro, resultado);
+    }
+
 }
