@@ -1,4 +1,4 @@
-# Projeto CRUD de Carros com Spring Boot e H2
+# Projeto Locadora de Carros com Spring Boot e H2
 
 Este é um exemplo básico de um aplicativo CRUD (Create, Read, Update, Delete) usando Spring Boot para cadastrar carros em um banco de dados H2 em memória.
 
